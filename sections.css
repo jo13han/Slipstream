@@ -1,136 +1,146 @@
 section {
+    height: 100vh;
+	border-bottom: 5px solid #ff233b;
     display: flex;
     flex-direction: column;
-    align-items: center; 
-    height: 100vh;
-    border-bottom: 5px solid #FF233B;
-
+    align-items: center;
 }
 
-section > h1{
-    text-align: center;
-
-}
-
-section#Home {
-    display: grid; 
-    align-items: unset;
-    grid-template-columns: 50% 50%;  
-    grid-template-rows: 80% 20%;
-}
-
-section#Home .logo {
+.sec_heading {
+	text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-section#Home .logo img{
-    display: flex;
-    height: 60%;
-    aspect-ratio: 1;
-}
-
-section#Home .map {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-section#Home .map svg{
-    display: flex;
-    height: 70%;
-    aspect-ratio: 1;
-}
-
-section#Home .name {
-    text-align: center;
-    font-size: 40px;
-    letter-spacing: .2rem;
-    padding: 15px;
-}
-
-section#About h1 {
-    height: 8%;
-    width: 8%;
-    padding: 15px;
-    text-align: center;
-    background: #FF233B;
-    color: black;
-    font-size: 30px;
-}
-section#About .info{
-    display: flex;
     flex-direction: row;
+    min-width: fit-content;
+    width: 15%;
+    height: 8%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-bottom: 2rem;
+    background: #ff233b;
+    color: black;
+    font-size: 2rem;
+}
+
+.sec_container {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
     height: 80%;
 }
 
-section#About .info .description{
-   width: 40%;
-   display: flex;
-   align-items: center;
-   text-align: justify;
-   text-justify: inter-word;
-}
-section#About .info .images{
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+section#Home {
+	justify-content: center;
+	align-items: center;
 }
 
+section#Home .topsection {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	height: 60%;
+    width: 100%;
+}
+
+section#Home .topsection .logo {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100%;
+}
+section#Home .topsection .map {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-left: 6rem;
+	width: 40%;
+	height: 100%;
+}
+
+section#Home .topsection .logo img {
+	aspect-ratio: 1;
+	width: 100%;
+	max-height: 100%;
+}
+
+section#Home .name {
+	margin-top: 3rem;
+	font-size: 4rem;
+}
+
+section#About .description {
+	width: 50%;
+	display: flex;
+    padding-right: 3rem;
+	align-items: center;
+	text-align: justify;
+	text-justify: inter-word;
+}
+section#About .images {
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
 section#F1 {
+    width: fit-content;
+}
+
+section#F1 .f1text {
+	width: 90%;
+    max-height: 100%;
+    word-wrap: normal;
+	text-align: center;
+	text-justify: inter-word;
+	letter-spacing: 2px;
+}
+
+.Contact-Image {
+	display: table;
+}
+section#Contact a {
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
-
-section#F1 h1{
-    flex-direction : column;
-    align-items: center (cross-axis);
-    height: 8%;
-    width: 8%;
-    padding: 15px;
-    background: #FF233B;
-    color: black;
-    font-size: 30px;
+section#Contact img {
+	width: 80%;
+    max-width: 200px;
+    margin-left: 1rem;
 }
 
-section#F1 .f1text{
-    padding-top:20px;
-    width: 60%;
-    display: flex;
-    align-items: left;
-    text-align: justify;
-    text-justify: inter-word;
-    letter-spacing: 2px;
-}
-section#Sponsors h1{
-    flex-direction : column;
-    align-items: center (cross-axis);
-    height: 8%;
-    width: 8%;
-    text-align: center;
-    padding: 10px;
-    background: #FF233B;
-    color: black;
-    font-size: 30px;
-}
-section#Contact h1{
-    flex-direction : column;
-    align-items: center (cross-axis);
-    height: 8%;
-    width: 8%;
-    text-align: center;
-    padding: 15px;
-    background: #FF233B;
-    color: black;
-    font-size: 30px;
-}
-
-.Contact-Image{
-  display: table;
-
-}
-section#Contact img{
-  flex-direction:row;
-  justify-content: center;
-  margin-top: 250px;
-  width: 200px;
+@media only screen and (max-width: 768px) {
+	section#Home {
+		justify-content: flex-start;
+        height: 120vh;
+	}
+	section#Home .topsection {
+        width: 100%;
+        height: 75%;
+		margin-top: 2rem;
+		flex-direction: column;
+		align-items: center;
+	}
+	section#Home .topsection .logo {
+        height: 40%;
+		width: 80%;
+        align-items: center;
+	}
+	section#Home .topsection .logo img {
+		aspect-ratio: 1;
+		width: fit-content;
+	}
+	section#Home .topsection .map {
+        height: 60%;
+        width: 80%;
+		margin-top: 1rem;
+		margin-left: 0;
+        align-items: center;
+	}
+    section#F1 .f1text {
+        font-size: 0.8rem;
+    }
 }
