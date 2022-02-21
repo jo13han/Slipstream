@@ -1,0 +1,120 @@
+/* Orange on the type: FF7300
+Red on car: CE1B4E , 870A2E , FF233B
+Tires: 282828
+*/
+
+* {
+	margin: 0;
+	padding: 0;
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: "Anton", sans-serif;
+	background: #000;
+	color: #fff;
+	height: 100vh;
+	line-height: 1.6;
+}
+
+.navbar {
+	height: 3rem;
+}
+.navbar .icon {
+	display: none;
+	float: right;
+	text-decoration: none;
+	color: #ff233b;
+}
+
+.navbar .links {
+	float: right;
+	list-style: none;
+	margin-right: 1rem;
+	display: flex;
+	width: 60%;
+	height: 100%;
+	flex-direction: row;
+	justify-content: end;
+}
+
+.navbar .links li {
+	color: #000000;
+	background-color: #ff233b;
+	text-align: center;
+	width: 20%;
+	counter-increment: items;
+	min-width: fit-content;
+	transition: color 0.5s, background-color 0.5s;
+    margin-left: 0.5rem;
+	border-radius: 2px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.navbar .links li:hover {
+	color: #ff233b;
+	background-color: #000000;
+}
+
+.navbar .links li a {
+	color: inherit;
+	text-decoration: none;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.description {
+	padding-left: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+	.navbar .icon {
+		display: inline-block;
+	}
+	.scroll-lock {
+		overflow-y: hidden;
+	}
+	.navbar .links {
+		visibility: hidden;
+		top: -100vh;
+		height: 100vh;
+		width: 100%;
+		flex-direction: column;
+		z-index: 998;
+		justify-content: center;
+		align-items: center;
+		background: black;
+		position: fixed;
+		transition: top 0.5s, visibility 0.5s;
+	}
+	.navbar .links.open {
+		visibility: visible;
+		top: 3rem;
+		transition: top 0.5s;
+	}
+
+	.navbar .links li:nth-child(even) {
+		-webkit-clip-path: polygon(4% 100%, 0 0, 96% 0, 100% 100%);
+		clip-path: polygon(4% 100%, 0 0, 96% 0, 100% 100%);
+	}
+
+	.navbar .links li {
+		width: 90%;
+		border: 4px ridge #6e1414;
+		height: 15%;
+		margin-bottom: 1rem;
+		font-size: 2.5rem;
+		-webkit-clip-path: polygon(0 100%, 4% 0, 100% 0, 96% 100%);
+		clip-path: polygon(0 100%, 4% 0, 100% 0, 96% 100%);
+	}
+    .navbar .links li.highlighted {
+		color: #ff233b;
+	    background-color: #000000;
+	}
+  
+}

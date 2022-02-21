@@ -1,0 +1,136 @@
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    height: 100vh;
+    border-bottom: 5px solid #FF233B;
+
+}
+
+section > h1{
+    text-align: center;
+
+}
+
+section#Home {
+    display: grid; 
+    align-items: unset;
+    grid-template-columns: 50% 50%;  
+    grid-template-rows: 80% 20%;
+}
+
+section#Home .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+section#Home .logo img{
+    display: flex;
+    height: 60%;
+    aspect-ratio: 1;
+}
+
+section#Home .map {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+section#Home .map svg{
+    display: flex;
+    height: 70%;
+    aspect-ratio: 1;
+}
+
+section#Home .name {
+    text-align: center;
+    font-size: 40px;
+    letter-spacing: .2rem;
+    padding: 15px;
+}
+
+section#About h1 {
+    height: 8%;
+    width: 8%;
+    padding: 15px;
+    text-align: center;
+    background: #FF233B;
+    color: black;
+    font-size: 30px;
+}
+section#About .info{
+    display: flex;
+    flex-direction: row;
+    height: 80%;
+}
+
+section#About .info .description{
+   width: 40%;
+   display: flex;
+   align-items: center;
+   text-align: justify;
+   text-justify: inter-word;
+}
+section#About .info .images{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+section#F1 {
+    align-items: center;
+}
+
+section#F1 h1{
+    flex-direction : column;
+    align-items: center (cross-axis);
+    height: 8%;
+    width: 8%;
+    padding: 15px;
+    background: #FF233B;
+    color: black;
+    font-size: 30px;
+}
+
+section#F1 .f1text{
+    padding-top:20px;
+    width: 60%;
+    display: flex;
+    align-items: left;
+    text-align: justify;
+    text-justify: inter-word;
+    letter-spacing: 2px;
+}
+section#Sponsors h1{
+    flex-direction : column;
+    align-items: center (cross-axis);
+    height: 8%;
+    width: 8%;
+    text-align: center;
+    padding: 10px;
+    background: #FF233B;
+    color: black;
+    font-size: 30px;
+}
+section#Contact h1{
+    flex-direction : column;
+    align-items: center (cross-axis);
+    height: 8%;
+    width: 8%;
+    text-align: center;
+    padding: 15px;
+    background: #FF233B;
+    color: black;
+    font-size: 30px;
+}
+
+.Contact-Image{
+  display: table;
+
+}
+section#Contact img{
+  flex-direction:row;
+  justify-content: center;
+  margin-top: 250px;
+  width: 200px;
+}
