@@ -2,7 +2,7 @@ const body = document.body;
 const navbarLinks = document.querySelector(".navbar .links");
 
 let higlightedLink = navbarLinks.querySelector(".highlighted");
-let btn = document.querySelector(".icon");
+let btn = document.querySelector(".menu-toggle");
 
 function handleLinkClick() {
 	higlightedLink.classList.remove("highlighted");
@@ -27,13 +27,17 @@ function handleMenu() {
 function openMenu(elem) {
 	navbarLinks.className += " open";
 	body.classList.add("scroll-lock");
-	btn.innerHTML = "X";
+	btn.classList.add("opened")
+	btn.setAttribute( 'aria-expanded', 'true' );
+	//btn.innerHTML = "X";
 }
 
 function closeMenu(elem) {
 	navbarLinks.className = navbarLinks.className.replace("open", "").trim();
 	body.classList.remove("scroll-lock");
-	btn.innerHTML = "&#9776";
+	btn.classList.remove("opened")
+	btn.setAttribute( 'aria-expanded', 'false' );
+	//btn.innerHTML = "&#9776";
 }
 
 

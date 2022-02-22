@@ -5,22 +5,16 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Slipstream Racing</title>
-		<link rel="stylesheet" href="main.css" />
-		<link rel="stylesheet" href="sections.css" />
-		<link rel="stylesheet" href="carousel.css" />
+		<link rel="stylesheet" href="styles/main.css" />
+		<link rel="stylesheet" href="styles/sections.css" />
+		<link rel="stylesheet" href="styles/carousel.css" />
+		<link rel="stylesheet" href="styles/menuButton.css" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet" />
 	</head>
 	<body>
 		<nav class="navbar">
-			<a
-				href="javascript:void(0);"
-				style="font-size: 30px; margin-right: 1rem"
-				class="icon"
-				onclick="handleMenu()"
-				>☰</a
-			>
 			<ul class="links responsive">
 				<li class="highlighted"><a href="#Home">Home</a></li>
 				<li><a href="#About">About</a></li>
@@ -28,6 +22,17 @@
 				<li><a href="#Sponsors">Sponsors</a></li>
 				<li><a href="#Contact">Contact</a></li>
 			</ul>
+			<button class="menu-toggle" onclick="handleMenu()" aria-expanded="false">
+				<span class="screen-reader-text">Menu</span>
+				<svg class="icon icon-menu-toggle" aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100">
+					<g class="svg-menu-toggle">
+						<path class="line line-1" d="M5 13h90v14H5z"/>
+						<path class="line line-2" d="M5 43h90v14H5z"/>
+						<path class="line line-3" d="M5 73h90v14H5z"/>
+					</g>
+				</svg>
+			</button>
+			
 		</nav>
 		<section id="Home">
 			<div class="topsection">
@@ -1130,10 +1135,10 @@
 			<h1 class="sec_heading">Contact</h1>
 			<div class="sec_container">
 				<a href="https://in.linkedin.com/in/slipstream-racing-65380b230?trk=public_profile_samename-profile">
-					<img style="margin-right: 50px" src="images/linkedin.png" />
+					<img src="images/linkedin.png" />
 				</a>
 				<a href="https://www.instagram.com/slipstream.racingf1/">
-					<img style="margin-right: 50px" src="images/instagram.png" />
+					<img src="images/instagram.png" />
 				</a>
 				<a href="https://www.twitter.com/slipstream.racingf1/">
 					<img src="images/twitter.png" />
@@ -1141,8 +1146,8 @@
 				
 			</div>
 		</section>
-
-		<script src="navbar.js"></script>
-		<script src="carousel.js"></script>
+		
+		<script src="scripts/navbar.js"></script>
+		<script src="scripts/carousel.js"></script>
 	</body>
 </html>

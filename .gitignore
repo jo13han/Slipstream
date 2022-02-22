@@ -1,3 +1,7 @@
 .vscode
 
 .replit
+
+ngrok.bat
+
+ngrok.exe

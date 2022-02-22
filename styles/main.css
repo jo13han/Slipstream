@@ -7,13 +7,14 @@ Tires: 282828
 	margin: 0;
 	padding: 0;
 	scroll-behavior: smooth;
+	box-sizing:border-box
 }
 
 body {
 	font-family: "Anton", sans-serif;
 	background: #000;
 	color: #fff;
-	width: 100vw;
+	width: 100%;
 	line-height: 1.6;
 }
 
@@ -21,9 +22,12 @@ body {
 	margin-top: 0.5rem;
 	height: 3rem;
 }
-.navbar .icon {
+.navbar .menu-toggle {
 	display: none;
 	float: right;
+	height: 100%;
+	position: relative;
+	z-index: 999;
 	text-decoration: none;
 	color: #ff233b;
 }
@@ -33,10 +37,15 @@ body {
 	list-style: none;
 	margin-right: 1rem;
 	display: flex;
+	font-size: 1.5rem;
 	width: 60%;
 	height: 100%;
 	flex-direction: row;
 	justify-content: end;
+}
+
+.navbar .links a {
+	font-size: inherit;
 }
 
 .navbar .links li {
@@ -74,7 +83,7 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
-	.navbar .icon {
+	.navbar .menu-toggle {
 		display: inline-block;
 	}
 	.scroll-lock {
@@ -87,6 +96,7 @@ body {
 		width: 100%;
 		flex-direction: column;
 		z-index: 998;
+		font-size: 4rem;
 		justify-content: center;
 		align-items: center;
 		background: black;
