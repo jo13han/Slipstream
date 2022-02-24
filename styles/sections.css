@@ -1,3 +1,26 @@
+@font-face {
+	font-family: 'Radon';
+	  src: url('../fonts/Radon_font/Radon_Regular.eot'); /* IE9 Compat Modes */
+	  src: url('../fonts/Radon_font/Radon_Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+		  url('../fonts/Radon_font/Radon_Regular.woff2') format('woff2'), /* Super Modern Browsers */
+		  url('../fonts/Radon_font/Radon_Regular.woff') format('woff'), /* Pretty Modern Browsers */
+		  url('../fonts/Radon_font/Radon_Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+		  url('../fonts//Radon_fontRadon_Regular.svg#svgFontName') format('svg'); /* Legacy iOS */ 
+	  font-weight: 400;
+	  font-style: normal;
+  }
+@font-face {
+	font-family: 'Radon_better';
+	  src: url('../fonts/Radon_font/Radon_Deco.eot'); /* IE9 Compat Modes */
+	  src: url('../fonts/Radon_font/Radon_Deco.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+		  url('../fonts/Radon_font/Radon_Deco.woff2') format('woff2'), /* Super Modern Browsers */
+		  url('../fonts/Radon_font/Radon_Deco.woff') format('woff'), /* Pretty Modern Browsers */
+		  url('../fonts/Radon_font/Radon_Deco.ttf')  format('truetype'), /* Safari, Android, iOS */
+		  url('../fonts/Radon_font/Radon_Deco.svg#svgFontName') format('svg'); /* Legacy iOS */ 
+	  font-weight: 400;
+	  font-style: normal;
+  }
+
 section {
     height: 100vh;
 	width: 100%;
@@ -8,6 +31,7 @@ section {
 }
 
 .sec_heading {
+	font-family: 'Radon';
 	text-align: center;
     display: flex;
     justify-content: center;
@@ -71,43 +95,56 @@ section#Home .topsection .logo img {
 }
 
 section#Home .name {
-	margin-top: 3rem;
-	font-size: 4rem;
+      font-family: 'Radon';
+    margin-top: 3rem;
+    font-size: 3rem;
+    text-align: center;
+    max-width: 100%;
+}
+section#Competition {
+    height: fit-content;
+}
+
+section#Competition .f1text {
+	font-family:Arial, Helvetica, sans-serif; 
+	width: 75%;
+    max-height: fit-content;
+    word-wrap: normal;
 	text-align: center;
-}
-section#About {
-	height: fit-content;
-}
-section#About .sec_container {
+	text-justify: inter-word;
 	margin-bottom: 2rem;
 }
-section#About .description {
-	width: 50%;
-	display: flex;
-    padding-right: 2rem;
-	align-items: center;
-	text-align: center;
+section#The Team {
+	height: fit-content;
 }
-section#About .images {
+section#The Team .sec_container {
+	margin-bottom: 2rem;
+}
+section#The Team .images {
 	width: 45%;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 }
-section#F1 {
-    height: fit-content;
+section#About Us {
+	height: fit-content;
 }
-
-section#F1 .f1text {
+section#About Us .sec_container {
+	margin-bottom: 2rem;
+}
+section#About Us .sec_container .description{
+	font-family:Arial, Helvetica, sans-serif; 
 	width: 90%;
     max-height: fit-content;
-    word-wrap: normal;
+  	word-wrap: normal;
 	text-align: center;
 	text-justify: inter-word;
-	letter-spacing: 2px;
 	margin-bottom: 2rem;
 }
 
+section#About p {
+    margin-bottom: 4rem;
+}
 section#Contact {
 	height: fit-content;
 }
@@ -126,6 +163,9 @@ section#Contact img {
 }
 
 @media only screen and (max-width: 768px) {
+  .sec_heading{
+    font-weight: 900;
+  }
 	section#Home {
 		justify-content: flex-start;
 		/* fallback */
@@ -163,27 +203,38 @@ section#Contact img {
 		margin-top: 1rem;
 		margin-left: 0;
         align-items: center;
-	}
-	
-	section#About .sec_container {
+	}	
+    section#Competition .f1text {
+        font-size: 0.8rem;
+    }
+}
+  section#About Us{
+	  height: fit-content;
+  }
+  section#About Us .sec_container{
+    display: flex;
+    flex-direction: collum;
+	  margin-bottom: 2rem;
+}
+  section#About Us .sec_container .text1{
+    flex-direction: column;
+	  font-family:Arial, Helvetica, sans-serif; 
+}
+  section#About Us .sec_contianer .text2{
+    flex-direction: column;
+    font-family:Arial, Helvetica, sans-serif; 
+    padding-top: 4rem;
+  }
+	section#The Team .sec_container {
 		flex-direction: column;
 		align-items: center;
 		margin-bottom: 1rem;
 	}
-	section#About .description {
+  	section#The Team .images {
 		width: 90%;
 		margin-bottom: 3rem;
 		padding: 0;
 	}
-	section#About .images {
-		width: 90%;
-		margin-bottom: 3rem;
-		padding: 0;
-	}
-    section#F1 .f1text {
-        font-size: 0.8rem;
-    }
-}
 
 @media only screen and (max-width: 300px) {
 	* {

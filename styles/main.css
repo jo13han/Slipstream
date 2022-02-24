@@ -11,7 +11,6 @@ Tires: 282828
 }
 
 body {
-	font-family: "Anton", sans-serif;
 	background: #000;
 	color: #fff;
 	width: 100%;
@@ -33,6 +32,7 @@ body {
 }
 
 .navbar .links {
+  font-family: 'Radon_better';
 	float: right;
 	list-style: none;
 	margin-right: 1rem;
