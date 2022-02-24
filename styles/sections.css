@@ -114,13 +114,13 @@ section#Competition .f1text {
 	text-justify: inter-word;
 	margin-bottom: 2rem;
 }
-section#The Team {
+section#TheTeam {
 	height: fit-content;
 }
-section#The Team .sec_container {
+section#TheTeam .sec_container {
 	margin-bottom: 2rem;
 }
-section#The Team .images {
+section#TheTeam .images {
 	width: 45%;
 	display: flex;
 	flex-direction: column;
@@ -225,12 +225,12 @@ section#Contact img {
     font-family:Arial, Helvetica, sans-serif; 
     padding-top: 4rem;
   }
-	section#The Team .sec_container {
+	section#TheTeam .sec_container {
 		flex-direction: column;
 		align-items: center;
 		margin-bottom: 1rem;
 	}
-  	section#The Team .images {
+  	section#TheTeam .images {
 		width: 90%;
 		margin-bottom: 3rem;
 		padding: 0;
