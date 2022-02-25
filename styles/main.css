@@ -19,8 +19,21 @@ body {
 }
 
 .navbar {
-	margin-top: 0.5rem;
-	height: 3rem;
+    width: 100%;
+    background-color: black;
+    z-index: 999;
+    height: 4rem;
+    display: flex;
+    position: fixed;
+}
+.navbar .logo{
+	margin-left: 1rem;
+	height: 100%;
+}
+.navbar .logo img{
+	height: 100%;
+	aspect-ratio: 1;
+
 }
 .navbar .menu-toggle {
 	display: none;
@@ -33,7 +46,8 @@ body {
 }
 
 .navbar .links {
-  font-family: 'Radon_better';
+	margin-left: auto;
+  	font-family: 'Radon_better';
 	float: right;
 	list-style: none;
 	margin-right: 1rem;
@@ -82,6 +96,7 @@ body {
 @media only screen and (max-width: 768px) {
 	.navbar .menu-toggle {
 		display: inline-block;
+		margin-left:auto;
 	}
 	.scroll-lock {
 		overflow-y: hidden;
@@ -117,7 +132,7 @@ body {
 	.navbar .links li {
 		width: 90%;
 		border: 4px ridge #6e1414;
-		height: 15%;
+		height: 12%;
 		margin-bottom: 1rem;
 		font-size: 2.5rem;
 		-webkit-clip-path: polygon(0 100%, 4% 0, 100% 0, 96% 100%);
