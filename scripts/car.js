@@ -8,7 +8,7 @@ camera.position.z = 10;
 camera.position.y = 2;
 
 const renderer = new THREE.WebGLRenderer({canvas,alpha:true,antialiasing:true});
-renderer.setClearColor(0x000000,1);
+renderer.setClearColor(0x000000,0);
 
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
@@ -16,8 +16,8 @@ controls.campingFactor = 0.25;
 controls.enableZoom = false;
 controls.minDistance = 12;
 controls.maxDistance = 15;
-controls.minPolarAngle = degrees_to_radians(75);
-controls.maxPolarAngle = degrees_to_radians(75);
+controls.minPolarAngle = degrees_to_radians(67);
+controls.maxPolarAngle = degrees_to_radians(67);
 controls.target.add(new THREE.Vector3(0,0,2));
 
 let keyLight = new THREE.DirectionalLight(new THREE.Color("hsl(30, 100%, 75%)"), 1.0);
