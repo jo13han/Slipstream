@@ -70,7 +70,7 @@ section#Home .topsection {
 	width: 100%;
 }
 
-section#Home .topsection .logo {
+section#Home .topsection .car {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
