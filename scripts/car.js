@@ -3,23 +3,43 @@ import { OrbitControls } from "https://cdn.skypack.dev/three@0.132.2/examples/js
 import { OBJLoader } from "https://cdn.skypack.dev/three@0.132.2/examples/jsm/loaders/OBJLoader.js";
 const canvas = document.querySelector(".car");
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, 2, 1, 1000);
+const camera = new THREE.PerspectiveCamera(75, canvas.width / canvas.height, 1, 50); 
 camera.position.z = 10;
 camera.position.y = 2;
 
-const renderer = new THREE.WebGLRenderer({canvas,alpha:true,antialiasing:true});
-renderer.setClearColor(0x000000,0);
+const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialiasing: true });
+renderer.setClearColor(0x000000, 0);
 
 const controls = new OrbitControls(camera, renderer.domElement);
-controls.enableDamping = true;
+controls.enablePan = false;
+controls.enableDamping = false;
 controls.campingFactor = 0.25;
 controls.enableZoom = false;
-controls.minDistance = 16;
-controls.maxDistance = 19;
+controls.minDistance = 13;
+controls.maxDistance = 13;
 controls.minPolarAngle = degrees_to_radians(67);
 controls.maxPolarAngle = degrees_to_radians(67);
-controls.target.add(new THREE.Vector3(0,0,2));
+//controls.target.add(new THREE.Vector3(0, 0, 2));
 
+let showcaseFloor = new THREE.Mesh(new THREE.CylinderGeometry( 5.4, 5.4, 0.12, 80 ), new THREE.MeshBasicMaterial({color: 0xFF233B}));
+showcaseFloor.position.y = -0.5;
+showcaseFloor.receiveShadow = true;
+scene.add(showcaseFloor);
+
+let showcaseFloor2 = new THREE.Mesh(new THREE.CylinderGeometry( 4.9, 4.9, 0.13, 80 ), new THREE.MeshBasicMaterial({color: 0x282828}));
+showcaseFloor2.position.y = -0.5;
+showcaseFloor2.receiveShadow = true;
+scene.add(showcaseFloor2);
+
+let showcaseFloor3 = new THREE.Mesh(new THREE.CylinderGeometry( 8, 8, 0.11, 80 ), new THREE.MeshBasicMaterial({color: 0x282828}));
+showcaseFloor3.position.y = -0.5;
+showcaseFloor3.receiveShadow = true;
+scene.add(showcaseFloor3);
+
+let showcaseFloor4 = new THREE.Mesh(new THREE.CylinderGeometry( 8.2, 8.2, 0.10, 80 ), new THREE.MeshBasicMaterial({color: 0xFF233B}));
+showcaseFloor4.position.y = -0.5;
+showcaseFloor4.receiveShadow = true;
+scene.add(showcaseFloor4);
 
 let keyLight = new THREE.DirectionalLight(new THREE.Color("hsl(30, 100%, 75%)"), 1.0);
 keyLight.position.set(-100, 0, 100);
@@ -30,6 +50,11 @@ fillLight.position.set(100, 0, 100);
 let backLight = new THREE.DirectionalLight(0xffffff, 0.5);
 backLight.position.set(100, 0, -100).normalize();
 
+
+let topLight = new THREE.DirectionalLight(0xffffff, 0.5);
+topLight.position.set(0,100,0).normalize();
+
+scene.add(topLight)
 scene.add(keyLight);
 scene.add(fillLight);
 scene.add(backLight);
@@ -44,9 +69,11 @@ loader.load(
 	// called when resource is loaded
 	(object) => {
 		car = object;
-		car.scale.x = 0.05;
-		car.scale.y = 0.05;
-		car.scale.z = 0.05;
+		car.position.z -= 1;
+		car.position.y += car.scale.y;
+		car.scale.x = 0.07
+		car.scale.y = 0.07;
+		car.scale.z = 0.07;
 		scene.add(car);
 
 		console.log(car);
@@ -62,16 +89,15 @@ function animate() {
 	requestAnimationFrame(animate);
 	if (car) {
 		/*  car.rotation.x += 0.01;
-        car.rotation.y += 0.01 */
+		car.rotation.y += 0.01 */
 	}
 
 	renderer.render(scene, camera);
 }
 
-function degrees_to_radians(degrees)
-{
-  var pi = Math.PI;
-  return degrees * (pi/180);
+function degrees_to_radians(degrees) {
+	var pi = Math.PI;
+	return degrees * (pi / 180);
 }
 
 function resizeCanvasToDisplaySize() {
@@ -79,16 +105,16 @@ function resizeCanvasToDisplaySize() {
 	// look up the size the canvas is being displayed
 	const width = canvas.clientWidth;
 	const height = canvas.clientHeight;
-  
+
 	// you must pass false here or three.js sadly fights the browser
 	renderer.setSize(width, height, false);
 	camera.aspect = width / height;
 	camera.updateProjectionMatrix();
-  
+
 	// update any render target sizes here
-  }
-  
-  const resizeObserver = new ResizeObserver(resizeCanvasToDisplaySize);
-  resizeObserver.observe(canvas, {box: 'content-box'});
+}
+
+const resizeObserver = new ResizeObserver(resizeCanvasToDisplaySize);
+resizeObserver.observe(canvas, { box: 'content-box' });
 
 animate();
