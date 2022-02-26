@@ -14,11 +14,12 @@ const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.campingFactor = 0.25;
 controls.enableZoom = false;
-controls.minDistance = 12;
-controls.maxDistance = 15;
+controls.minDistance = 16;
+controls.maxDistance = 19;
 controls.minPolarAngle = degrees_to_radians(67);
 controls.maxPolarAngle = degrees_to_radians(67);
 controls.target.add(new THREE.Vector3(0,0,2));
+
 
 let keyLight = new THREE.DirectionalLight(new THREE.Color("hsl(30, 100%, 75%)"), 1.0);
 keyLight.position.set(-100, 0, 100);
