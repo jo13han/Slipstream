@@ -95,7 +95,7 @@ section#Home .topsection .map {
 }
 section#Home .name {
 	font-family: "Radon";
-	margin-top: 3rem;
+	margin-top: 1rem;
 	font-size: 3rem;
 	text-align: center;
 	max-width: 100%;
@@ -121,11 +121,13 @@ section#AboutUs .sec_container {
 	margin-bottom: 2rem;
 }
 section#AboutUs .sec_container .description {
+	border: 0.5rem solid #ff233b;
+	padding: 1rem;
 	font-family: Arial, Helvetica, sans-serif;
 	width: 90%;
 	max-height: fit-content;
 	word-wrap: normal;
-	text-align: center;
+	text-align: justify;
 	text-justify: inter-word;
 	margin-bottom: 2rem;
 }
@@ -139,14 +141,29 @@ section#Competition {
 	height: fit-content;
 }
 
-section#Competition .f1text {
+section#Competition .sec_container .comptext{
+	border: 0.5rem solid #ff233b;
+	padding: 1rem;
 	font-family: Arial, Helvetica, sans-serif;
 	width: 90%;
 	max-height: fit-content;
 	word-wrap: normal;
-	text-align: center;
+	text-align: justify;
 	text-justify: inter-word;
+	margin-top: 2rem;
 	margin-bottom: 2rem;
+}
+
+section#Competition p{
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+section#Sponsors {
+
+}
+section#Sponsors img{
+	border: 0.5rem solid #ff233b;
+
 }
 
 section#Contact {
@@ -178,7 +195,7 @@ section#Contact img {
 		height: fit-content;
 	}
 	section#Home .name {
-		margin-top: 0.5rem;
+		margin-top: 3rem;
 		margin-bottom: 1rem;
 	}
 	section#Home .topsection {
