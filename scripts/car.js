@@ -1,9 +1,9 @@
 import * as THREE from "https://cdn.skypack.dev/three@0.132.2";
 import { OrbitControls } from "https://cdn.skypack.dev/three@0.132.2/examples/jsm/controls/OrbitControls.js";
-import { FBXLoader } from 'https://cdn.skypack.dev/three@0.132.2/examples/jsm/loaders/FBXLoader';
+import { FBXLoader } from "https://cdn.skypack.dev/three@0.132.2/examples/jsm/loaders/FBXLoader";
 const canvas = document.querySelector(".car");
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, canvas.width / canvas.height, 1, 50); 
+const camera = new THREE.PerspectiveCamera(75, canvas.width / canvas.height, 1, 50);
 camera.position.z = 10;
 camera.position.y = 2;
 
@@ -21,22 +21,34 @@ controls.minPolarAngle = degrees_to_radians(67);
 controls.maxPolarAngle = degrees_to_radians(67);
 //controls.target.add(new THREE.Vector3(0, 0, 2));
 
-let showcaseFloor = new THREE.Mesh(new THREE.CylinderGeometry( 5.4, 5.4, 0.12, 80 ), new THREE.MeshBasicMaterial({color: 0xFF233B}));
+let showcaseFloor = new THREE.Mesh(
+	new THREE.CylinderGeometry(5.4, 5.4, 0.12, 80),
+	new THREE.MeshBasicMaterial({ color: 0xff233b })
+);
 showcaseFloor.position.y = -0.5;
 showcaseFloor.receiveShadow = true;
 scene.add(showcaseFloor);
 
-let showcaseFloor2 = new THREE.Mesh(new THREE.CylinderGeometry( 4.9, 4.9, 0.13, 80 ), new THREE.MeshBasicMaterial({color: 0x282828}));
+let showcaseFloor2 = new THREE.Mesh(
+	new THREE.CylinderGeometry(4.9, 4.9, 0.13, 80),
+	new THREE.MeshBasicMaterial({ color: 0x282828 })
+);
 showcaseFloor2.position.y = -0.5;
 showcaseFloor2.receiveShadow = true;
 scene.add(showcaseFloor2);
 
-let showcaseFloor3 = new THREE.Mesh(new THREE.CylinderGeometry( 8, 8, 0.11, 80 ), new THREE.MeshBasicMaterial({color: 0x282828}));
+let showcaseFloor3 = new THREE.Mesh(
+	new THREE.CylinderGeometry(8, 8, 0.11, 80),
+	new THREE.MeshBasicMaterial({ color: 0x282828 })
+);
 showcaseFloor3.position.y = -0.5;
 showcaseFloor3.receiveShadow = true;
 scene.add(showcaseFloor3);
 
-let showcaseFloor4 = new THREE.Mesh(new THREE.CylinderGeometry( 8.2, 8.2, 0.10, 80 ), new THREE.MeshBasicMaterial({color: 0xFF233B}));
+let showcaseFloor4 = new THREE.Mesh(
+	new THREE.CylinderGeometry(8.2, 8.2, 0.1, 80),
+	new THREE.MeshBasicMaterial({ color: 0xff233b })
+);
 showcaseFloor4.position.y = -0.5;
 showcaseFloor4.receiveShadow = true;
 scene.add(showcaseFloor4);
@@ -51,40 +63,42 @@ let backLight = new THREE.DirectionalLight(0xffffff, 0.5);
 backLight.position.set(100, 0, -100).normalize();
 
 let topLight = new THREE.DirectionalLight(0xffffff, 0.5);
-topLight.position.set(0,100,0).normalize();
+topLight.position.set(0, 100, 0).normalize();
 
-/*scene.add(topLight)*/
-// scene.add(keyLight); 
-// scene.add(fillLight);
-//scene.add(backLight);
+scene.add(topLight)
+scene.add(keyLight);
+scene.add(fillLight);
+scene.add(backLight);
 
-let car
-const fbxLoader = new FBXLoader()
-fbxLoader.loadAsync(
-    '../assets/car.fbx',
-    (xhr) => {
-        console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
-    },
-) .then((object)=>{
-	car = object;
-	car.position.z -= 1;
-	car.position.y += car.scale.y;
-	car.scale.x = 0.03
-	car.scale.y = 0.03;
-	car.scale.z = 0.03;
-	scene.add(car);
-	console.log(car);
-	        // object.traverse(function (child) {
-        //     if ((child as THREE.Mesh).isMesh) {
-        //         // (child as THREE.Mesh).material = material
-        //         if ((child as THREE.Mesh).material) {
-        //             ((child as THREE.Mesh).material as THREE.MeshBasicMaterial).transparent = false
-        //         }
-        //     }
-        // })
-        // object.scale.set(.01, .01, .01)
-})
-.catch(console.log)
+let car;
+const fbxLoader = new FBXLoader();
+fbxLoader
+	.loadAsync("../assets/car.fbx", (xhr) => {
+		console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
+	})
+	.then((object) => {
+		car = object;
+		
+		// car.position.x = 0;
+		// car.position.y = 0;
+		car.position.z = 8;
+		//car.position.y += car.scale.y;
+		car.scale.x = 0.08;
+		car.scale.y = 0.08;
+		car.scale.z = 0.08;
+		scene.add(car);
+		console.log(car);
+
+		// object.traverse(function (child) {
+		// 	if (child.isLight) {
+		// 		child.clear();
+		// 		child.removeFromParent();
+		// 		// (child as THREE.Mesh).material = material
+		// 	}
+		// });
+		// object.scale.set(.01, .01, .01)
+	})
+	.catch(console.log);
 function animate() {
 	requestAnimationFrame(animate);
 	if (car) {
@@ -114,6 +128,6 @@ function resizeCanvasToDisplaySize() {
 }
 
 const resizeObserver = new ResizeObserver(resizeCanvasToDisplaySize);
-resizeObserver.observe(canvas, { box: 'content-box' });
+resizeObserver.observe(canvas, { box: "content-box" });
 
 animate();
