@@ -1,13 +1,13 @@
 import * as THREE from "https://cdn.skypack.dev/three@0.132.2";
 import { OrbitControls } from "https://cdn.skypack.dev/three@0.132.2/examples/jsm/controls/OrbitControls.js";
-import { OBJLoader } from "https://cdn.skypack.dev/three@0.132.2/examples/jsm/loaders/OBJLoader.js";
+import { FBXLoader } from 'https://cdn.skypack.dev/three@0.132.2/examples/jsm/loaders/FBXLoader';
 const canvas = document.querySelector(".car");
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, canvas.width / canvas.height, 1, 50); 
 camera.position.z = 10;
 camera.position.y = 2;
 
-const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialiasing: true });
+const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
 renderer.setClearColor(0x000000, 0);
 
 const controls = new OrbitControls(camera, renderer.domElement);
@@ -50,48 +50,47 @@ fillLight.position.set(100, 0, 100);
 let backLight = new THREE.DirectionalLight(0xffffff, 0.5);
 backLight.position.set(100, 0, -100).normalize();
 
-
 let topLight = new THREE.DirectionalLight(0xffffff, 0.5);
 topLight.position.set(0,100,0).normalize();
 
-scene.add(topLight)
-scene.add(keyLight);
-scene.add(fillLight);
-scene.add(backLight);
+/*scene.add(topLight)*/
+// scene.add(keyLight); 
+// scene.add(fillLight);
+//scene.add(backLight);
 
-const loader = new OBJLoader();
-let car;
-
-loader.load(
-	// resource URL
-	"../assets/car.obj",
-
-	// called when resource is loaded
-	(object) => {
-		car = object;
-		car.position.z -= 1;
-		car.position.y += car.scale.y;
-		car.scale.x = 0.07
-		car.scale.y = 0.07;
-		car.scale.z = 0.07;
-		scene.add(car);
-
-		console.log(car);
-	},
-	// called when loading is in progress
-	(xhr) => console.log((xhr.loaded / xhr.total) * 100 + "% loaded"),
-
-	console.log
-);
-
-
+let car
+const fbxLoader = new FBXLoader()
+fbxLoader.loadAsync(
+    '../assets/car.fbx',
+    (xhr) => {
+        console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
+    },
+) .then((object)=>{
+	car = object;
+	car.position.z -= 1;
+	car.position.y += car.scale.y;
+	car.scale.x = 0.03
+	car.scale.y = 0.03;
+	car.scale.z = 0.03;
+	scene.add(car);
+	console.log(car);
+	        // object.traverse(function (child) {
+        //     if ((child as THREE.Mesh).isMesh) {
+        //         // (child as THREE.Mesh).material = material
+        //         if ((child as THREE.Mesh).material) {
+        //             ((child as THREE.Mesh).material as THREE.MeshBasicMaterial).transparent = false
+        //         }
+        //     }
+        // })
+        // object.scale.set(.01, .01, .01)
+})
+.catch(console.log)
 function animate() {
 	requestAnimationFrame(animate);
 	if (car) {
 		/*  car.rotation.x += 0.01;
 		car.rotation.y += 0.01 */
 	}
-
 	renderer.render(scene, camera);
 }
 

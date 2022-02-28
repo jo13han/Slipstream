@@ -139,6 +139,7 @@ section#AboutUs p {
 
 section#Competition {
 	height: fit-content;
+
 }
 
 section#Competition .sec_container .comptext{
@@ -224,6 +225,13 @@ section#Contact img {
 		margin-top: 1rem;
 		margin-left: 0;
 		align-items: center;
+	}
+
+	section#Competition .comptext {
+		width: 72%;
+	}
+	section#Competition .sec_container{
+		flex-direction: column;
 	}
 }
 
