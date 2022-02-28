@@ -6,6 +6,7 @@ const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, canvas.width / canvas.height, 1, 50);
 camera.position.z = 10;
 camera.position.y = 2;
+const wheels=[];
 
 const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
 renderer.setClearColor(0x000000, 0);
@@ -78,32 +79,35 @@ fbxLoader
 	})
 	.then((object) => {
 		car = object;
-		
+
 		// car.position.x = 0;
-		// car.position.y = 0;
+		car.position.y += 0.1;
 		car.position.z = 8;
 		//car.position.y += car.scale.y;
-		car.scale.x = 0.08;
-		car.scale.y = 0.08;
-		car.scale.z = 0.08;
+		car.scale.x = 0.07;
+		car.scale.y = 0.07;
+		car.scale.z = 0.07;
 		scene.add(car);
 		console.log(car);
 
-		// object.traverse(function (child) {
-		// 	if (child.isLight) {
-		// 		child.clear();
-		// 		child.removeFromParent();
-		// 		// (child as THREE.Mesh).material = material
-		// 	}
-		// });
-		// object.scale.set(.01, .01, .01)
+		car.children.forEach(function (child) {
+			if(child.isGroup && child.name.startsWith('wheel'))
+			{
+				const mesh = child.children[0].children[0];
+				console.log(mesh);
+				wheels.push(mesh);
+			}
+		});
 	})
 	.catch(console.log);
 function animate() {
 	requestAnimationFrame(animate);
 	if (car) {
-		/*  car.rotation.x += 0.01;
-		car.rotation.y += 0.01 */
+		for(let i=0;i<wheels.length;i++)
+		{
+			let wheel=wheels[i];
+			wheel.rotation.y += 0.1;
+		}
 	}
 	renderer.render(scene, camera);
 }
