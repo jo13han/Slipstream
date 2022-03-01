@@ -1,4 +1,5 @@
 const body = document.body;
+const navbar = document.querySelector(".navbar");
 const navbarLinks = document.querySelector(".navbar .links");
 
 let higlightedLink = navbarLinks.querySelector(".highlighted");
@@ -25,7 +26,8 @@ function handleMenu() {
 }
 
 function openMenu(elem) {
-	navbarLinks.className += " open";
+	navbar.classList.add("open");
+	navbarLinks.classList.add("open");
 	body.classList.add("scroll-lock");
 	btn.classList.add("opened")
 	btn.setAttribute( 'aria-expanded', 'true' );
@@ -33,7 +35,8 @@ function openMenu(elem) {
 }
 
 function closeMenu(elem) {
-	navbarLinks.className = navbarLinks.className.replace("open", "").trim();
+	navbar.classList.remove("open");
+	navbarLinks.classList.remove("open")
 	body.classList.remove("scroll-lock");
 	btn.classList.remove("opened")
 	btn.setAttribute( 'aria-expanded', 'false' );

@@ -22,9 +22,23 @@
 	</head>
 	<body>
 		<nav class="navbar">
-			<div class="logo">
-				<a href="#Home"><img src="images/ssr1.png" alt="logo"/></a>
+			<div class="container">
+				<div class="logo">
+					<a href="#Home"><img src="images/ssr1.png" alt="logo"/></a>
+				</div>
+
+				<button class="menu-toggle" onclick="handleMenu()" aria-expanded="false">
+					<span class="screen-reader-text">Menu</span>
+					<svg class="icon icon-menu-toggle" aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100">
+						<g class="svg-menu-toggle">
+							<path class="line line-1" d="M5 13h90v14H5z"/>
+							<path class="line line-2" d="M5 43h90v14H5z"/>
+							<path class="line line-3" d="M5 73h90v14H5z"/>
+						</g>
+					</svg>
+				</button>
 			</div>
+			
 			<ul class="links responsive">
 				<li class="highlighted"><a href="#Home">Home</a></li>
     		    <li><a href="#TheTeam">The Team</a></li>
@@ -33,17 +47,6 @@
 				<li><a href="#Sponsors">Sponsors</a></li>
 				<li><a href="#Contact">Contact</a></li>
 			</ul>
-			<button class="menu-toggle" onclick="handleMenu()" aria-expanded="false">
-				<span class="screen-reader-text">Menu</span>
-				<svg class="icon icon-menu-toggle" aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100">
-					<g class="svg-menu-toggle">
-						<path class="line line-1" d="M5 13h90v14H5z"/>
-						<path class="line line-2" d="M5 43h90v14H5z"/>
-						<path class="line line-3" d="M5 73h90v14H5z"/>
-					</g>
-				</svg>
-			</button>
-			
 		</nav>
 		<section id="Home">
 			<h1 class="name">SLIPSTREAM RACING</h1>
@@ -1155,7 +1158,7 @@
 			<h1 class="sec_heading">SPONSORS</h1>
 			<div class="sec_container">
 				<a href="https://airshaper.com/">
-					<img src="images/airshaper.png" height="500px" width="500px" />
+					<img src="images/airshaper.png"/>
 				</a>
 			</div>
 		</section>
