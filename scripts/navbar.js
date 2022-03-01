@@ -4,13 +4,6 @@ const navbarLinks = document.querySelector(".navbar .links");
 let higlightedLink = navbarLinks.querySelector(".highlighted");
 let btn = document.querySelector(".menu-toggle");
 
-var scrollEventHandler = function()
-{
-  window.scroll(0, window.pageYOffset)
-}
-
-window.addEventListener("scroll", scrollEventHandler, false);
-
 function handleLinkClick() {
 	higlightedLink.classList.remove("highlighted");
 	this.parentElement.classList.add("highlighted");
