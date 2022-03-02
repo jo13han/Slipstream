@@ -20,6 +20,7 @@ controls.minDistance = 13;
 controls.maxDistance = 13;
 controls.minPolarAngle = degrees_to_radians(67);
 controls.maxPolarAngle = degrees_to_radians(67);
+controls.update()
 //controls.target.add(new THREE.Vector3(0, 0, 2));
 
 let showcaseFloor = new THREE.Mesh(
