@@ -162,6 +162,7 @@ section#Competition .sec_container .competitionpic{
 }
 section#Competition .sec_container .competitionpic img {
 	max-width: 100%;
+	display: flex;
 }
 
 section#Competition p{
@@ -248,6 +249,9 @@ section#Contact img {
 	}
 	section#Competition .sec_container{
 		flex-direction: column;
+	}
+	section#Competition .competitionpic img{
+		justify-content: center;
 	}
 }
 
