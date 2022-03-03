@@ -28,13 +28,14 @@ body {
 }
 .navbar .container {
 	display:flex;
-	width: 100%;
+	width: 20%;
 	background-color: inherit;
 }
 
 .navbar .logo{
 	margin-left: 1rem;
 	height: 100%;
+	width: 20%;
 }
 .navbar .logo img{
 	height: 100%;
@@ -101,6 +102,9 @@ body {
 	.navbar .menu-toggle {
 		display: inline-block;
 		margin-left:auto;
+	}
+	.navbar .container {
+		width: 100%;
 	}
 	.scroll-lock {
 		overflow-y: hidden;

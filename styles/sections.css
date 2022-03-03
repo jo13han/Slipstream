@@ -230,7 +230,13 @@ section#Contact img {
 	}
 	section#Home .topsection .car-container {
 		width: 100%;
+		height: 60%;
+		margin: 0;
 	}
+	section#Home .topsection .car-container canvas{
+		max-height: 100%;
+	}
+
 	section#Home .topsection .map {
 		height: 60%;
 		width: 80%;
@@ -246,6 +252,8 @@ section#Contact img {
 	section#Competition .sec_container .competitionpic {
 		width: 90%;
 		margin-bottom: 1rem;
+		display: flex;
+		justify-content: center;
 	}
 	section#Competition .sec_container{
 		flex-direction: column;

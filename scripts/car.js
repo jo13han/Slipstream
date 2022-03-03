@@ -2,11 +2,12 @@ import * as THREE from "https://cdn.skypack.dev/three@0.132.2";
 import { OrbitControls } from "https://cdn.skypack.dev/three@0.132.2/examples/jsm/controls/OrbitControls.js";
 import { FBXLoader } from "https://cdn.skypack.dev/three@0.132.2/examples/jsm/loaders/FBXLoader";
 const canvas = document.querySelector(".car");
+const maxHeight = Number(canvas.getAttribute("data-max-height").replace("px", ""));
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, canvas.width / canvas.height, 1, 50);
 camera.position.z = 10;
 camera.position.y = 2;
-const wheels=[];
+const wheels = [];
 
 const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
 renderer.setClearColor(0x000000, 0);
@@ -20,7 +21,7 @@ controls.minDistance = 13;
 controls.maxDistance = 13;
 controls.minPolarAngle = degrees_to_radians(67);
 controls.maxPolarAngle = degrees_to_radians(67);
-controls.update()
+controls.update();
 //controls.target.add(new THREE.Vector3(0, 0, 2));
 
 let showcaseFloor = new THREE.Mesh(
@@ -67,7 +68,7 @@ backLight.position.set(100, 0, -100).normalize();
 let topLight = new THREE.DirectionalLight(0xffffff, 0.5);
 topLight.position.set(0, 100, 0).normalize();
 
-scene.add(topLight)
+scene.add(topLight);
 scene.add(keyLight);
 scene.add(fillLight);
 scene.add(backLight);
@@ -92,8 +93,7 @@ fbxLoader
 		console.log(car);
 
 		car.children.forEach(function (child) {
-			if(child.isGroup && child.name.startsWith('wheel'))
-			{
+			if (child.isGroup && child.name.startsWith("wheel")) {
 				const mesh = child.children[0].children[0];
 				console.log(mesh);
 				wheels.push(mesh);
@@ -104,9 +104,8 @@ fbxLoader
 function animate() {
 	requestAnimationFrame(animate);
 	if (car) {
-		for(let i=0;i<wheels.length;i++)
-		{
-			let wheel=wheels[i];
+		for (let i = 0; i < wheels.length; i++) {
+			let wheel = wheels[i];
 			wheel.rotation.y += 0.1;
 		}
 	}
@@ -121,11 +120,16 @@ function degrees_to_radians(degrees) {
 function resizeCanvasToDisplaySize() {
 	const canvas = renderer.domElement;
 	// look up the size the canvas is being displayed
-	const width = canvas.clientWidth;
-	const height = canvas.clientHeight;
+	const pixelRatio = window.devicePixelRatio;
+	const width = (canvas.clientWidth * pixelRatio) | 0;
+	const height = Math.min((canvas.clientHeight * pixelRatio) | 0, maxHeight);
+	const needResize = canvas.width !== width || canvas.height !== height;
 
-	// you must pass false here or three.js sadly fights the browser
-	renderer.setSize(width, height, false);
+	if (needResize) {
+		// you must pass false here or three.js sadly fights the browser
+		renderer.setSize(width, height, false);
+	}
+
 	camera.aspect = width / height;
 	camera.updateProjectionMatrix();
 
