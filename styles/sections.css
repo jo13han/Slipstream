@@ -171,6 +171,7 @@ section#Competition p{
 }
 section#Sponsors a{
 	border: 0.5rem solid #ff233b;
+	margin: 1rem;
 	width: 90%;
 	max-height: 90%;
 }
