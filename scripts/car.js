@@ -76,19 +76,18 @@ scene.add(backLight);
 let car;
 const fbxLoader = new FBXLoader();
 fbxLoader
-	.loadAsync("../assets/car.fbx", (xhr) => {
+	.loadAsync("../assets/f1_carog.fbx", (xhr) => {
 		console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
 	})
 	.then((object) => {
 		car = object;
 
-		// car.position.x = 0;
+		car.position.x -= 6.5;
 		car.position.y += 0.1;
-		car.position.z = 8;
 		//car.position.y += car.scale.y;
-		car.scale.x = 0.07;
-		car.scale.y = 0.07;
-		car.scale.z = 0.07;
+		car.scale.x = 0.25;
+		car.scale.y = 0.25;
+		car.scale.z = 0.25;
 		scene.add(car);
 		console.log(car);
 

@@ -20,6 +20,9 @@
 	font-weight: 400;
 	font-style: normal;
 }
+@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 
 section {
 	height: 100vh;
@@ -32,7 +35,7 @@ section {
 }
 
 .sec_heading {
-	font-family: "Radon";
+	font-family: "Saira Condensed";
 	text-align: center;
 	display: flex;
 	justify-content: center;
@@ -46,7 +49,7 @@ section {
 	margin-bottom: 2rem;
 	background: #ff233b;
 	color: black;
-	font-size: 2rem;
+	font-size: 3rem;
 }
 
 .sec_container {
@@ -82,18 +85,11 @@ section#Home .topsection .car-container {
 	margin-right: 2rem;
 }
 section#Home .car-container canvas{
-	z-index: 901;
+	z-index: 8;
 	width: 100%;
 	height: 100%;
 }
-section#Home .topsection .map {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	width: 50%;
-	height: 100%;
-}
+
 section#Home .name {
 	font-family: "Radon";
 	margin-top: 1rem;
@@ -176,6 +172,7 @@ section#Sponsors a{
 	max-height: 90%;
 }
 section#Sponsors img {
+	aspect-ratio: 1;
 	max-width: 100%;
 	height: 100%;
 }
@@ -195,6 +192,10 @@ section#Contact img {
 	width: 80%;
 	max-width: 200px;
 	margin-left: 1rem;
+	margin-right: 1rem;
+}
+section#Contact .phone{
+	font-size: 1.5rem;
 }
 
 @media only screen and (max-width: 1200px) {

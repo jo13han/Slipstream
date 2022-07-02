@@ -1,13 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 button,
 input[type="button"] {
 	border: none;
-	color: #fff;
+	color: #000;
 	cursor: pointer;
     background: none;
 	display: inline-block;
 	padding: 1em 1.5em;
 	text-transform: uppercase;
 	transition: all 0.25s ease-in-out;
+	font-family: "Saira Condensed";
+	font-size: 1rem;
 }
 
 .icon {
