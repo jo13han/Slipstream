@@ -47,3 +47,13 @@ function closeMenu(elem) {
 navbarLinks.querySelectorAll("li").forEach((elem) => {
 	elem.querySelector("a").addEventListener("click", handleLinkClick);
 });
+
+
+window.addEventListener('scroll', function(e) {
+	let currentScrollPosition = window.scrollY;
+	if (currentScrollPosition > navbar.clientHeight) {
+		navbar.classList.add("scrolled");
+	} else {
+		navbar.classList.remove("scrolled");
+	}
+});

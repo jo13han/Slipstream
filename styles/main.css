@@ -86,12 +86,18 @@ body {
 
 .navbar {
     width: 100%;
-    background-color: black;
-    height: 4rem;
+	/* background-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1)); */
+    /* background-color: black; */
+    height: 5rem;
     display: flex;
     position: fixed;
 	z-index: 9;
 }
+.navbar.scrolled {
+	background-color: black;
+	transition: background-color 0.2s linear;
+}
+
 .navbar .container {
 	display:flex;
 	width: 20%;
@@ -99,8 +105,8 @@ body {
 }
 
 .navbar .logo{
-	margin-left: 1rem;
-	height: 100%;
+	margin-left: 2rem;
+	height: 90%;
 	width: 20%;
 }
 .navbar .logo img{
@@ -114,7 +120,7 @@ body {
 	height: 100%;
 	position: relative;
 	text-decoration: none;
-	color: #ff233b;
+	color: #000;
 }
 
 .navbar .links {
@@ -129,6 +135,7 @@ body {
 	height: 100%;
 	flex-direction: row;
 	justify-content: end;
+	align-items: center;
 }
 
 .navbar .links a {
@@ -136,23 +143,33 @@ body {
 }
 
 .navbar .links li {
-	color: #ff233b;
-	background-color: #000;
+	color: #000;
+	/* background-color: #000000; */
 	text-align: center;
 	width: 20%;
+	height: 80%;
 	min-width: fit-content;
 	transition: color 0.1s, background-color 0.2s;
     margin-left: 0.5rem;
-	border-radius: 2px;
+	border-radius: 5px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
+.navbar.scrolled .links li {
+	color: #ff233b;
+	background-color: #000000;
+}
 
 .navbar .links li:hover {
-	color: #ff233b ;
-	background-color: #000000 ;
+	color: #ff233b;
+	background-color: #000000;
 }
+.navbar.scrolled .links li:hover {
+	color: #000000;
+	background-color: #ff233b;
+}
+
 
 .navbar .links li a{
 	color: inherit ;
@@ -170,6 +187,9 @@ body {
 		display: inline-block;
 		margin-left:auto;
 	}
+	.navbar.scrolled .menu-toggle{
+		color: #ff233b;
+	}
 	.navbar .container {
 		width: 100%;
 	}
@@ -186,7 +206,7 @@ body {
 		font-size: 4rem;
 		justify-content: center;
 		align-items: center;
-		background: black;
+		background: #000000;
 		position: fixed;
 		transition: top 0.5s, visibility 0.5s;
 	}
@@ -207,6 +227,7 @@ body {
 	.navbar .links li {
 		width: 90%;
 		border: 4px ridge #6e1414;
+		background-color: #ff233b;
 		height: 12%;
 		margin-bottom: 1rem;
 		font-size: 2.5rem;
@@ -214,7 +235,8 @@ body {
 		clip-path: polygon(0 100%, 4% 0, 100% 0, 96% 100%);
 	}
     .navbar .links li.highlighted {
-		color: #ff233b;
-	    background-color: #000000;
+		color: #000000;
+	    background-color: #ff233b;
 	}
+	
 }

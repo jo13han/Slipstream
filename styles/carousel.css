@@ -73,7 +73,7 @@
 }
 
 .dot.active, .dot:hover {
-  background-color: #ff0000;
+  background-color: #000;
 }
 
 /* Fading animation */

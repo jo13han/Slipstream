@@ -129,6 +129,9 @@ closeBtn.onclick = function () {
   function animate() {
     requestAnimationFrame(animate);
     //showcaseFloor.translateY(1);
+    let t = new Date().getTime() * 0.128;
+    roughnessMap.offset.set(0, -(t % 1));
+    normalMap.offset.set(0, -(t % 1));
 
     if (car) {
       for (let i = 0; i < wheels.length; i++) {
