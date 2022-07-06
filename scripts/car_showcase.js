@@ -57,42 +57,30 @@ closeBtn.onclick = function () {
   controls.update();
   //controls.target.add(new THREE.Vector3(0, 0, 2)); 
 
-  var texture = new THREE.TextureLoader().load('../images/roadtext.jpg');
+  const texture = new THREE.TextureLoader().load('../assets/textures/asphalt.jpg', tex => {
+    tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+    tex.repeat.set(1,1)
+  });
+
 
   let showcaseFloor = new THREE.Mesh(
-    new THREE.PlaneGeometry( 200, 20000 ),
-    new THREE.MeshBasicMaterial({ map: texture, color: 0x808080, side: THREE.DoubleSide })
+    new THREE.PlaneGeometry( 50, 200 ),
+    new THREE.MeshStandardMaterial({ map: texture, color: 0xffffff, side: THREE.DoubleSide })
   );
   showcaseFloor.frustumCulled = false
   showcaseFloor.rotateX(-Math.PI * 0.5)
   showcaseFloor.rotateZ(-Math.PI/2)
-  showcaseFloor.position.y = -0.5;
+  //showcaseFloor.position.y = -0.5;
   showcaseFloor.receiveShadow = true;
   scene.add(showcaseFloor);
 
-  let keyLight = new THREE.DirectionalLight(
-    new THREE.Color("hsl(30, 100%, 75%)"),
-    1.0
-  );
-  keyLight.position.set(-100, 0, 100);
-
   let fillLight = new THREE.DirectionalLight(
-    new THREE.Color("hsl(240, 100%, 75%)"),
-    0.75
+    new THREE.Color(0xffffff),
+    2
   );
-  fillLight.position.set(100, 0, 100);
-
-  let backLight = new THREE.DirectionalLight(0xffffff, 0.5);
-  backLight.position.set(100, 0, -100).normalize();
-
-  backLight.position.set(100, 0, -100).normalize();
-  let topLight = new THREE.DirectionalLight(0xffffff, 0.5);
-  topLight.position.set(0, 100, 0).normalize();
-
-  scene.add(topLight);
-  scene.add(keyLight);
+  fillLight.position.set(0,20,0);
   scene.add(fillLight);
-  scene.add(backLight);
+
 
   let car;
   const fbxLoader = new FBXLoader();
@@ -102,10 +90,8 @@ closeBtn.onclick = function () {
     })
     .then((object) => {
       car = object;
-      car.frustumCulled = false
       car.position.x -= 6.5;
-
-      //car.position.y += 0.1;
+      car.position.y += 1.4;
       //car.position.y += car.scale.y;
       /* car.scale.x = 0.1;
       car.scale.y = 0.1;
@@ -125,7 +111,7 @@ closeBtn.onclick = function () {
 
   function animate() {
     requestAnimationFrame(animate);
-    showcaseFloor.translateY(1);
+    //showcaseFloor.translateY(1);
 
     if (car) {
       for (let i = 0; i < wheels.length; i++) {

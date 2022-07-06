@@ -1,22 +1,22 @@
 @font-face {
 	font-family: "Radon";
-	src: url("../fonts/Radon_Regular/Radon_Regular.eot"); /* IE9 Compat Modes */
-	src: url("../fonts/Radon_Regular/Radon_Regular.eot?#iefix") format("embedded-opentype"),
-		/* IE6-IE8 */ url("../fonts/Radon_Regular/Radon_Regular.woff2") format("woff2"),
-		/* Super Modern Browsers */ url("../fonts/Radon_Regular/Radon_Regular.woff") format("woff"),
-		/* Pretty Modern Browsers */ url("../fonts/Radon_Regular/Radon_Regular.ttf") format("truetype"),
-		/* Safari, Android, iOS */ url("../fonts//Radon_Regular.svg#svgFontName") format("svg"); /* Legacy iOS */
+	src: url("../assets/fonts/Radon_Regular/Radon_Regular.eot"); /* IE9 Compat Modes */
+	src: url("../assets/fonts/Radon_Regular/Radon_Regular.eot?#iefix") format("embedded-opentype"),
+		/* IE6-IE8 */ url("../assets/fonts/Radon_Regular/Radon_Regular.woff2") format("woff2"),
+		/* Super Modern Browsers */ url("../assets/fonts/Radon_Regular/Radon_Regular.woff") format("woff"),
+		/* Pretty Modern Browsers */ url("../assets/fonts/Radon_Regular/Radon_Regular.ttf") format("truetype"),
+		/* Safari, Android, iOS */ url("../assets/fonts//Radon_Regular.svg#svgFontName") format("svg"); /* Legacy iOS */
 	font-weight: 400;
 	font-style: normal;
 }
 @font-face {
 	font-family: "Radon_better";
-	src: url("../fonts/Radon_Deco/Radon_Deco.eot"); /* IE9 Compat Modes */
-	src: url("../fonts/Radon_Deco/Radon_Deco.eot?#iefix") format("embedded-opentype"),
-		/* IE6-IE8 */ url("../fonts/Radon_Deco/Radon_Deco.woff2") format("woff2"),
-		/* Super Modern Browsers */ url("../fonts/Radon_Deco/Radon_Deco.woff") format("woff"),
-		/* Pretty Modern Browsers */ url("../fonts/Radon_Deco/Radon_Deco.ttf") format("truetype"),
-		/* Safari, Android, iOS */ url("../fonts/Radon_Deco/Radon_Deco.svg#svgFontName") format("svg"); /* Legacy iOS */
+	src: url("../assets/fonts/Radon_Deco/Radon_Deco.eot"); /* IE9 Compat Modes */
+	src: url("../assets/fonts/Radon_Deco/Radon_Deco.eot?#iefix") format("embedded-opentype"),
+		/* IE6-IE8 */ url("../assets/fonts/Radon_Deco/Radon_Deco.woff2") format("woff2"),
+		/* Super Modern Browsers */ url("../assets/fonts/Radon_Deco/Radon_Deco.woff") format("woff"),
+		/* Pretty Modern Browsers */ url("../assets/fonts/Radon_Deco/Radon_Deco.ttf") format("truetype"),
+		/* Safari, Android, iOS */ url("../assets/fonts/Radon_Deco/Radon_Deco.svg#svgFontName") format("svg"); /* Legacy iOS */
 	font-weight: 400;
 	font-style: normal;
 }
@@ -61,6 +61,7 @@ section {
 }
 
 section#Home {
+	background: linear-gradient(145deg, rgb(231 18 41) 0%, rgb(213 50 50) 35%, rgb(182 84 25) 100%);
 	justify-content: center;
 	align-items: center;
 }
@@ -92,7 +93,7 @@ section#Home .car-container canvas{
 
 section#Home .name {
 	font-family: "Radon";
-	margin-top: 1rem;
+	margin-top: 6rem;
 	font-size: 3rem;
 	text-align: center;
 	max-width: 100%;
@@ -208,9 +209,6 @@ section#Contact .phone{
 		height: 120vh;
 
 		height: fit-content;
-	}
-	section#Home .name {
-		margin-top: 6rem;
 	}
 	section#Home .topsection {
 		width: 100%;
