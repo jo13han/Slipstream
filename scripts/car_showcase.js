@@ -62,10 +62,27 @@ closeBtn.onclick = function () {
     tex.repeat.set(1,1)
   });
 
+  const roughnessMap = new THREE.TextureLoader().load('../assets/textures/roughness_map.jpg', tex => {
+    tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+    tex.repeat.set(10, 10)
+  });
+  const normalMap = new THREE.TextureLoader().load('../assets/textures/normal_map.jpg', tex => {
+    tex.wrapS = tex.wrapT = THREE.RepeatWrapping;
+    tex.repeat.set(10, 10)
+  });
 
   let showcaseFloor = new THREE.Mesh(
-    new THREE.PlaneGeometry( 50, 200 ),
-    new THREE.MeshStandardMaterial({ map: texture, color: 0xffffff, side: THREE.DoubleSide })
+    new THREE.PlaneGeometry( 100, 100 ),
+    new THREE.MeshStandardMaterial({
+      /*  map: texture,  */
+       color: new THREE.Color(0.015, 0.015, 0.015), 
+       side: THREE.DoubleSide,
+       normalScale: new THREE.Vector2(0.15, 0.15),
+       roughness: 0.7,
+       envMapIntensity : 0,
+       roughnessMap,
+       normalMap
+    })
   );
   showcaseFloor.frustumCulled = false
   showcaseFloor.rotateX(-Math.PI * 0.5)
