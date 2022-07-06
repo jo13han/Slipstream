@@ -15,7 +15,7 @@ button.onclick = function () {
     canvas.classList.add("active");
     loadingScreen.classList.remove("active");
     closeBtn.classList.add("active");
-  }, 3000);
+  }, 1000);
 };
 closeBtn.onclick = function () {
   closeBtn.classList.remove("active");
