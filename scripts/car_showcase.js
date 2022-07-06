@@ -32,7 +32,7 @@ closeBtn.onclick = function () {
     50
   );
 //   camera.near = 1000
-//   camera.far = 2000
+  camera.far = 5000
   camera.position.z = 25;
   camera.position.y = 5;
   camera.position.x = 12;
