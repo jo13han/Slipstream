@@ -60,7 +60,7 @@ closeBtn.onclick = function () {
   var texture = new THREE.TextureLoader().load('../images/roadtext.jpg');
 
   let showcaseFloor = new THREE.Mesh(
-    new THREE.PlaneGeometry( 200, 20000 ),
+    new THREE.PlaneGeometry( 200, 2000 ),
     new THREE.MeshBasicMaterial({ map: texture, color: 0x808080, side: THREE.DoubleSide })
   );
   showcaseFloor.frustumCulled = false

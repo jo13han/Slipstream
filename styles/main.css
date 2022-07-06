@@ -124,7 +124,7 @@ body {
 	list-style: none;
 	margin-right: 1rem;
 	display: flex;
-	font-size: 2rem;
+	font-size: 1.5rem;
 	width: 60%;
 	height: 100%;
 	flex-direction: row;
@@ -136,8 +136,8 @@ body {
 }
 
 .navbar .links li {
-	color: #000000;
-	background-color: #ff233b;
+	color: #ff233b;
+	background-color: #000;
 	text-align: center;
 	width: 20%;
 	min-width: fit-content;
